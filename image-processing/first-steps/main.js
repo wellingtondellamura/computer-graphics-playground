@@ -1,5 +1,5 @@
 var image = document.getElementById('image');
-var canvas = canvas = document.getElementById('image-canvas');
+var canvas = document.getElementById('image-canvas');
 var context;
 
 let load = function (){
