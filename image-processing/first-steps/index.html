@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Steps in Image Processing</title>
 
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
     <script src="main.js" defer></script>
     
 </head>
@@ -16,20 +16,29 @@
     <div class="container mx-auto">
         <h1 class="text-center font-bold text-2xl"> First Steps in Image Processing</h1>
         <div class="mb-4 mt-4">
-            <button class="bg-blue-900 text-white py-1 px-2" 
+            <button class="bg-red-900 text-white py-1 px-2" 
                 id="btnLoad">Load image</button>
-                <button class="bg-gray-400 text-white py-1 px-2" 
+            <button class="bg-gray-400 text-white py-1 px-2" 
                 id="btnGray">Grayscale</button>
+            <button class="bg-gray-500 text-white py-1 px-2" 
+                id="btnGrayCIE">Grayscale CIE</button>
+            <button class="bg-gray-700 text-white py-1 px-2" 
+                id="btnGrayNTSC">Grayscale NTSC</button>
             <button class="bg-gray-900 text-white py-1 px-2" 
                 id="btnMono">Monochromatic</button>
-            <input type="range" id="ContrastSlider" value="0" min="0" max="255">
         </div>
         <div class="flex">
             <div class="w-1/2 border-2 p-3 mr-3">
-                <img id="image" src="images/clown-fish.jpg"/>
+                <img id="image" src="images/sea.jpg"/>
             </div>
             <div class="w-1/2 border-2 p-3">
                 <canvas id="image-canvas"></canvas>
+            </div>
+            <div class="w-1/2 border-2 p-3">
+                <canvas id="image-canvasCIE"></canvas>
+            </div>
+            <div class="w-1/2 border-2 p-3">
+                <canvas id="image-canvasNTSC"></canvas>
             </div>
         </div>
     </div>
