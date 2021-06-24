@@ -34,8 +34,8 @@ let grayScale = function() {
 let mean = function() {
     let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     let img = new MatrixImage(imageData);
-    for (var i = 0; i < img.width; i++) {
-        for (var j = 0; j < img.height; j++) {
+    for (var i = 2; i < img.width-2; i++) {
+        for (var j = 2; j < img.height-2; j++) {
             var pixel = Array();
             pixel.push(img.getPixel(i-1,j-1).red);
             pixel.push(img.getPixel(i-1,j).red);
