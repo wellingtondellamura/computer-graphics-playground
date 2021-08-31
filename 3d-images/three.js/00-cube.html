@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js test</title>
+</head>
+<body>
+    <canvas id="c"></canvas>
+</body>
+
+
+<script type="module">
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+    
+
+
+function main() {
+    const canvas = document.querySelector('#c');
+    const renderer = new THREE.WebGLRenderer({canvas});
+
+    //camera
+    const fov = 75;
+    const aspect = 2; 
+    const near = 0.1;
+    const far = 5;
+    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    camera.position.z = 2;
+
+    //scene
+    const scene = new THREE.Scene();
+    
+    //geometry
+    const boxWidth = 1;
+    const boxHeight = 1;
+    const boxDepth = 1;
+    const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+    //material
+    const material = new THREE.MeshBasicMaterial({color: 0x44aa88});
+
+    //cube
+    const cube = new THREE.Mesh(geometry, material);
+
+    //add to scene
+    scene.add(cube);
+
+
+    //renderize
+    //renderer.render(scene, camera);
+
+
+    function render(time) {
+      time *= 0.001;  // convert time to seconds
+     
+      cube.rotation.x = time+5;
+      cube.rotation.y = time;
+     
+      renderer.render(scene, camera);
+     
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+
+}
+
+
+main();
+</script>
+
+</html>

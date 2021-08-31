@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js test</title>
+</head>
+<body>
+    <canvas id="c" width="1200" height="600"></canvas>
+</body>
+
+
+<script type="module">
+import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+  
+
+function create_light(){
+    const color = 0xFFFFFF;
+    const intensity = 1;
+    const light = new THREE.DirectionalLight(color, intensity);
+    light.position.set(-1, 2, 4);
+    return light;
+}
+
+function makeInstance(color, x) {
+        const boxWidth = 1;
+        const boxHeight = 1;
+        const boxDepth = 1;
+        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+      const material = new THREE.MeshPhongMaterial({color});
+      const cube = new THREE.Mesh(geometry, material);
+      cube.position.x = x;
+      return cube;
+}
+
+function main() {
+    const canvas = document.querySelector('#c');
+    const renderer = new THREE.WebGLRenderer({canvas});
+
+    //camera
+    const fov = 75;
+    const aspect = 2;  // the canvas default
+    const near = 0.1;
+    const far = 5;
+    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    camera.position.z = 5;
+
+    //scene
+    const scene = new THREE.Scene();
+    scene.add(create_light());
+
+    //geometry
+    
+
+
+
+    //cube
+    const cubes = [
+      makeInstance(0x44aa88,  0),
+      makeInstance(0x8844aa, -4),
+      makeInstance(0xaa8844,  4),
+    ];
+
+    //add to scene
+    cubes.forEach((cube) => {
+        scene.add(cube);
+    });
+
+    //renderize
+    //renderer.render(scene, camera);
+
+
+    function render(time) {
+      time *= 0.001;  // convert time to seconds
+     
+      cubes.forEach((cube, ndx) => {
+            const speed = 1 + ndx * .1;
+            const rot = time * speed;
+            cube.rotation.x = rot;
+            cube.rotation.y = rot;
+      });
+     
+      renderer.render(scene, camera);
+      requestAnimationFrame(render);
+    }
+    
+    requestAnimationFrame(render);
+
+}
+
+
+main();
+</script>
+
+</html>
