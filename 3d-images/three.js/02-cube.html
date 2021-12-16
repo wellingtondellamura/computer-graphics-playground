@@ -24,14 +24,23 @@ function create_light(){
 }
 
 function makeInstance(color, x) {
-        const boxWidth = 1;
-        const boxHeight = 1;
-        const boxDepth = 1;
-        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-      const material = new THREE.MeshPhongMaterial({color});
-      const cube = new THREE.Mesh(geometry, material);
-      cube.position.x = x;
-      return cube;
+    const texture = new THREE.TextureLoader().load("data:image/jpeg;base64,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");
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set( 4, 4 );
+
+
+    const boxWidth = 1.5;
+    const boxHeight = 1.5;
+    const boxDepth = 1.5;
+    const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+    const material = new THREE.MeshLambertMaterial({map : texture});
+    const cube = new THREE.Mesh(geometry, material);
+    cube.position.x = x*2;
+
+
+
+    return cube;
 }
 
 function main() {
@@ -39,10 +48,10 @@ function main() {
     const renderer = new THREE.WebGLRenderer({canvas});
 
     //camera
-    const fov = 75;
+    const fov = 100;
     const aspect = 2;  // the canvas default
-    const near = 0.1;
-    const far = 5;
+    const near = 0.9;
+    const far = 8;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     camera.position.z = 5;
 
@@ -57,9 +66,7 @@ function main() {
 
     //cube
     const cubes = [
-      makeInstance(0x44aa88,  0),
-      makeInstance(0x8844aa, -4),
-      makeInstance(0xaa8844,  4),
+      makeInstance(0x8aa4aa,  0)
     ];
 
     //add to scene
@@ -75,9 +82,9 @@ function main() {
       time *= 0.001;  // convert time to seconds
      
       cubes.forEach((cube, ndx) => {
-            const speed = 1 + ndx * .1;
+            const speed = 1 + ndx * .2;
             const rot = time * speed;
-            cube.rotation.x = rot;
+            cube.rotation.x = rot*0.1;
             cube.rotation.y = rot;
       });
      
