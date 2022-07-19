@@ -16,11 +16,11 @@ image_res ,image_thresh = cv2.threshold(image_blur,230,255,cv2.THRESH_BINARY_INV
 print("Limiar: ", image_res)
 cv2.imshow("4 limiar", image_thresh)
 
-kernel = numpy.ones((3,3),numpy.uint8)
+kernel = numpy.ones((5,5),numpy.uint8)
 morpho = cv2.morphologyEx(image_thresh,cv2.MORPH_DILATE ,kernel)
 cv2.imshow("5 morfologia: ", morpho)
 
-kernel2 = numpy.ones((3,3),numpy.uint8)
+kernel2 = numpy.ones((5,5),numpy.uint8)
 morpho = cv2.morphologyEx(morpho,cv2.MORPH_DILATE ,kernel2)
 cv2.imshow("6 morfologia: ", morpho)
 

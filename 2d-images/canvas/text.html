@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(143deg, #0973c8, #32b28a);
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        #drawing {
+            width: 400px;
+            height: 300px;
+            margin: 10px;
+            border: 4px solid #000;
+            border-radius: 15px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="drawing" width="400" height="300"></canvas>
+
+
+    <script>
+        let drawing = document.getElementById("drawing");
+        let c = drawing.getContext("2d");
+
+        c.font = "bold 32px Arial";
+        c.fillText("Hello World!", 50, 100);
+
+    </script>
+</body>
+
+</html>
