@@ -4,6 +4,8 @@ let controls = {
     bouncingSpeed: 0.03
 }
 
+
+
 function init() {
 
     const renderer = initRenderer();
@@ -46,8 +48,8 @@ function init() {
     const clock = new THREE.Clock();
 
     let gui = new dat.GUI();
-    gui.add(controls, 'rotationSpeed', 0, 0.5);
-    gui.add(controls, 'bouncingSpeed', 0, 0.5);
+    gui.add(controls, 'rotationSpeed', 0, 1);
+    gui.add(controls, 'bouncingSpeed', 0, 1);
 
     let step=0;
     function renderScene() {
@@ -68,6 +70,14 @@ function init() {
     }
 
     renderScene();
+
+
+    function onResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }  
+    window.addEventListener('resize', onResize, false);
 }
 
 
@@ -126,3 +136,5 @@ function initTrackballControls(camera, renderer) {
     trackballControls.staticMoving = true;
     return trackballControls;
 }
+
+  

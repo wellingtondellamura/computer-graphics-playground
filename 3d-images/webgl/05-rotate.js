@@ -91,6 +91,7 @@ function animate() {
     mat4.rotateZ(matrix, matrix, Math.PI / 2 / V);
     gl.uniformMatrix4fv(uniformLocations.matrix, false, matrix);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+   // alert(matrix);
 }
 
 animate();

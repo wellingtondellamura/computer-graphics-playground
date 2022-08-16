@@ -45,9 +45,12 @@ function init() {
         stats.update();
         trackballControls.update(clock.getDelta());
     
-        cube.rotation.x += 0.02;
-        cube.rotation.y += 0.02;
-        cube.rotation.z += 0.02;
+         cube.rotation.x += 0.02;
+         cube.rotation.y += 0.02;
+         cube.rotation.z += 0.02;
+         //cube.position.x +=0.1;
+         //cube.position.y +=0.1;
+         //cube.position.z +=0.1;
 
         step+=0.04;
         sphere.position.x = 20 + 10*(Math.cos(step));

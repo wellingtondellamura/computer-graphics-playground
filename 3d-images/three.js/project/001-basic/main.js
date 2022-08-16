@@ -29,7 +29,7 @@ function init() {
     camera.lookAt(scene.position);
     
     document.getElementById("webgloutput").appendChild(renderer.domElement);
-    
+   
     renderer.render(scene, camera);
 }
 
@@ -41,8 +41,8 @@ function initRenderer() {
 }
 
 function initScene() {
-    var scene = new THREE.Scene();
-    var axes = new THREE.AxesHelper(20);
+    let scene = new THREE.Scene();
+    let axes = new THREE.AxesHelper(20);
     scene.add(axes);
     return scene;
 }

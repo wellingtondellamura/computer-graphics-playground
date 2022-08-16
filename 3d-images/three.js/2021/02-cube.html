@@ -34,7 +34,8 @@ function makeInstance(color, x) {
     const boxHeight = 1.5;
     const boxDepth = 1.5;
     const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-    const material = new THREE.MeshLambertMaterial({map : texture});
+    //const material = new THREE.MeshLambertMaterial({map : texture});
+    const material = new THREE.MeshPhongMaterial({color});
     const cube = new THREE.Mesh(geometry, material);
     cube.position.x = x*2;
 
@@ -66,7 +67,9 @@ function main() {
 
     //cube
     const cubes = [
-      makeInstance(0x8aa4aa,  0)
+      makeInstance(0x8aa4aa,  0),
+      makeInstance(0x0ad4aa,  -2),
+      makeInstance(0xff1111,  2)
     ];
 
     //add to scene

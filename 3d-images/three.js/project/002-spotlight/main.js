@@ -23,7 +23,7 @@ function init() {
     
     let sphere = new THREE.Mesh(
         new THREE.SphereGeometry(4, 20, 20),
-        new THREE.MeshLambertMaterial({ color: 0x7777FF })
+        new THREE.MeshStandardMaterial({ color: 0x7777FF })
     );                
     sphere.position.set(20, 4, 2);
     sphere.castShadow = true;
@@ -66,7 +66,7 @@ function initCamera() {
 
 function initSpotLight() {
     let spotLight = new THREE.SpotLight(0xFFFFFF);
-    spotLight.position.set(-40, 40, -15);
+    spotLight.position.set(-20, 40, -15);
     spotLight.castShadow = true;
     spotLight.shadow.mapSize = new THREE.Vector2(1024, 1024);
     spotLight.shadow.camera.far = 130;
