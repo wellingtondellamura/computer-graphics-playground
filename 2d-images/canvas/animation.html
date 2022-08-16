@@ -1,69 +1,77 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-    </style>
-  </head>
-  <body>
-    <canvas id="myCanvas" width="1000" height="200"></canvas>
-    <script>
-      window.requestAnimFrame = (function(callback) {
-        return window.requestAnimationFrame || 
-               window.webkitRequestAnimationFrame || 
-               window.mozRequestAnimationFrame || 
-               window.oRequestAnimationFrame || 
-               window.msRequestAnimationFrame ||
-                function(callback) {
-                    window.setTimeout(callback, 1000 / 60);
-                };
-      })();
 
-      function drawRectangle(myRectangle, context) {
-        context.beginPath();
-        context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
-        context.fillStyle = 'red';
-        context.fill();
-        context.lineWidth = myRectangle.borderWidth;
-        context.strokeStyle = 'black';
-        context.stroke();
-      }
+<head>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+</head>
 
-      function animate(myRectangle, canvas, context, startTime) {
-        var time = (new Date()).getTime() - startTime;
-        var linearSpeed = 100;
-        var newX = linearSpeed * time / 1000;
-        if(newX < canvas.width - myRectangle.width - myRectangle.borderWidth / 2) {
-          myRectangle.x = newX;
-        }
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        drawRectangle(myRectangle, context);
+<body>
+  <button id="btn">Começar</button>
+  <canvas id="myCanvas" width="1000" height="200"></canvas>
+  <script>
+    
+    const SPEED = 1000;
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    
 
-        requestAnimFrame(function() {
-          animate(myRectangle, canvas, context, startTime);
-        });
-      }
 
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
+    //see ---- https://caniuse.com/?search=requestAnimationFrame
+    // window.requestAnimFrame = (function (callback) {
+    //   return window.requestAnimationFrame ||
+    //     window.webkitRequestAnimationFrame ||
+    //     window.mozRequestAnimationFrame ||
+    //     window.oRequestAnimationFrame ||
+    //     window.msRequestAnimationFrame ||
+    //     function (callback) {
+    //       window.setTimeout(callback, 1000 / 60);
+    //     };
+    // })();
 
-      var myRectangle = {
+    var startAnimation = () => {
+      var rect = {
         x: 0,
         y: 75,
-        width: 20,
-        height: 20,
-        borderWidth: 1
+        width: 100,
+        height: 100,
+        borderWidth: 3,
+        color: 'red'
       };
+      var startTime = (new Date()).getTime();
+      animate(rect, canvas, context, startTime);
+    }
 
-      drawRectangle(myRectangle, context);
+    function drawRectangle(myRectangle, context) {
+      context.beginPath();
+      context.rect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
+      context.fillStyle = myRectangle.color;
+      context.fill();
+      context.lineWidth = myRectangle.borderWidth;
+      context.strokeStyle = 'black';
+      context.stroke();
+    }
 
-      // wait one second before starting animation
-      setTimeout(function() {
-        var startTime = (new Date()).getTime();
-        animate(myRectangle, canvas, context, startTime);
-      }, 100);
-    </script>
-</html>      
+    function animate(rect, canvas, context, startTime) {
+      var time = (new Date()).getTime() - startTime;
+      var newX = SPEED * time / 1000;
+      if (newX < canvas.width - rect.width - rect.borderWidth / 2) {
+        rect.x = newX;
+      }
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      drawRectangle(rect, context);
+
+      window.requestAnimationFrame(function () {
+        animate(rect, canvas, context, startTime);
+      });
+    }
+    
+    document.getElementById('btn').addEventListener('click', startAnimation);
+
+  </script>
+
+</html>

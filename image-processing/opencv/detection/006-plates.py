@@ -5,7 +5,7 @@ import numpy as np
 
 plateCascade = cv2.CascadeClassifier('haarcascades/haarcascade_russian_plate_number.xml')
 
-img = cv2.imread('images/car2.png')
+img = cv2.imread('images/car.png')
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 plates = plateCascade.detectMultiScale(gray)

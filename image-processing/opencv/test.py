@@ -7,7 +7,7 @@ import numpy as np
 #cv2.waitKey()
 # Filtro da Média ----------------------------------------------
 img = cv2.imread('images/clown-fish.jpg')
-median = cv2.medianBlur(img, 5)
+median = cv2.medianBlur(img, 77)
 compare = np.concatenate((img, median), axis=1) #Comparação lado a lado
 cv2.imshow('img', compare)
 cv2.waitKey(0)

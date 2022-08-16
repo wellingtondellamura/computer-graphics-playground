@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: linear-gradient(143deg, #0973c8, #32b28a);
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        #drawing {
+            width: 400px;
+            height: 300px;
+            margin: 10px;
+            border: 4px solid #000;
+            border-radius: 15px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="drawing" width="400" height="300"></canvas>
+
+
+    <script>
+        let canvas = document.getElementById("drawing");
+        let context = canvas.getContext("2d");
+        context.beginPath();
+        context.arc(150, 150, 80, 1.2 * Math.PI, 1.8 * Math.PI, false);
+        context.closePath();       
+        context.beginPath();
+        context.arc(150, 100, 70, 0, 2 * Math.PI, false);
+        context.closePath();
+        context.rect(50, 50, 200, 100); 
+        var grd = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+        grd.addColorStop(0, '#99D6FF');   
+        grd.addColorStop(1, '#004CB3');
+        context.fillStyle = grd;
+
+        context.fill();
+        context.stroke();
+
+    </script>
+</body>
+
+</html>

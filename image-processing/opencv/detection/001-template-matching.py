@@ -1,5 +1,5 @@
 import cv2
-
+#https://docs.opencv.org/4.x/d4/dc6/tutorial_py_template_matching.html
 image = "images/coke.png"
 template = "images/coke-template.png"
 
