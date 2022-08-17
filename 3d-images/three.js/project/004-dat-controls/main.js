@@ -87,7 +87,7 @@ function initRenderer() {
     let renderer = new THREE.WebGLRenderer();
     renderer.setClearColor(new THREE.Color(0x000000));
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.shadowMap.Enabled = true;
+    renderer.shadowMap.enabled = true;
     return renderer;
 }
 
