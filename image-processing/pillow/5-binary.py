@@ -23,7 +23,7 @@ for x in range(width):
         bin_img.putpixel((x, y), bin_value)
 
 # Salvando a nova imagem binarizada
-bin_img.save('imagem_binaria.jpg')
+bin_img.save('/images/imagem_binaria.jpg')
 
 # Exibindo a nova imagem binarizada
 bin_img.show()
