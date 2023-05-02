@@ -7,8 +7,8 @@ function init() {
     const camera = initCamera();
     const stats = initStats();
 
-    //scene.fog = new THREE.Fog(0xffffff, 10, 100);//linear
-    scene.fog = new THREE.FogExp2( 0xffffff, 0.01 );//exponencial
+   // scene.fog = new THREE.Fog(0xffffff, 10, 100);//linear
+   // scene.fog = new THREE.FogExp2( 0xffffff, 0.01 );//exponencial
 
     let planeGeometry = new THREE.PlaneGeometry(60, 40, 1, 1);
     let plane = new THREE.Mesh(
@@ -24,6 +24,14 @@ function init() {
     camera.lookAt(scene.position);
     let spotLight = initSpotLight();
     scene.add(spotLight);
+
+
+    let spotLight2 = initSpotLight();
+    spotLight2.position.set(40, 60, 10);
+    scene.add(spotLight2);
+
+
+     
 
     let ambientLight = new THREE.AmbientLight(0x3c3c3c);
     scene.add(ambientLight);
@@ -48,7 +56,7 @@ function init() {
     
         addCube: function () {
     
-            var cubeSize = Math.ceil((Math.random() * 3));
+            var cubeSize = Math.ceil((Math.random() * 6));
             var cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
             var cubeMaterial = new THREE.MeshLambertMaterial({
                 color: Math.random() * 0xffffff

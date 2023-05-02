@@ -10,7 +10,7 @@ width, height = gray_img.size
 bin_img = Image.new('1', (width, height))
 
 # Definindo um threshold
-threshold = 128
+threshold = 165
 
 # Aplicando a conversão para a nova imagem binarizada
 for x in range(width):
@@ -23,7 +23,7 @@ for x in range(width):
         bin_img.putpixel((x, y), bin_value)
 
 # Salvando a nova imagem binarizada
-bin_img.save('/images/imagem_binaria.jpg')
+#bin_img.save('/images/imagem_binaria.jpg')
 
 # Exibindo a nova imagem binarizada
 bin_img.show()

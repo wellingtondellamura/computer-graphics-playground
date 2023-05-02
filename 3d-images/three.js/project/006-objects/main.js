@@ -7,9 +7,7 @@ function init() {
     const camera = initCamera();
     const stats = initStats();
 
-    //scene.fog = new THREE.Fog(0xffffff, 10, 100);//linear
-    scene.fog = new THREE.FogExp2(0xffffff, 0.01);//exponencial
-
+    
     let planeGeometry = new THREE.PlaneGeometry(60, 40, 1, 1);
     let plane = new THREE.Mesh(
         planeGeometry,
@@ -37,16 +35,17 @@ function init() {
     let loader = new THREE.OBJLoader();
     loader.load('obj/Thuya_Smagard.obj', function (mesh) {
 
-        var material = new THREE.MeshLambertMaterial({
-            color: 0x5C3A21
-        });
+         var material = new THREE.MeshLambertMaterial({
+             color: 0x5C3A21
+         });
         mesh.children.forEach(function (child) {
             child.material = material;
             child.geometry.computeVertexNormals();
             child.geometry.computeFaceNormals();
         });
-
-        mesh.scale.set(120, 120, 120)
+        mesh.position.y = 10;
+        mesh.scale.set(0.001, 0.001, 0.001);
+        mesh.castShadow = true;
         scene.add(mesh);
     });
 
@@ -95,13 +94,13 @@ function init() {
         stats.update();
         trackballControls.update(clock.getDelta());
 
-        scene.traverse(function (e) {
-            if (e instanceof THREE.Mesh && e != plane) {
-                e.rotation.x += controls.rotationSpeed;
-                e.rotation.y += controls.rotationSpeed;
-                e.rotation.z += controls.rotationSpeed;
-            }
-        });
+        // scene.traverse(function (e) {
+        //     if (e instanceof THREE.Mesh && e != plane) {
+        //         e.rotation.x += controls.rotationSpeed;
+        //         e.rotation.y += controls.rotationSpeed;
+        //         e.rotation.z += controls.rotationSpeed;
+        //     }
+        // });
 
 
         requestAnimationFrame(renderScene);
