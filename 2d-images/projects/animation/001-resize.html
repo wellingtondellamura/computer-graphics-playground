@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas em Tela Inteira</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+  }
+</style>
+</head>
+<body>
+<canvas id="myCanvas"></canvas>
+
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const context = canvas.getContext('2d');
+
+  // Função para ajustar o tamanho do canvas
+  function adjustCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Redesenhar o conteúdo do canvas após o ajuste
+    drawCircle();
+  }
+
+  // Função para desenhar um círculo no centro do canvas
+  function drawCircle() {
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = 50;
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    context.fillStyle = 'blue';
+    context.fill();
+    context.closePath();
+  }
+
+  adjustCanvasSize();
+  
+  window.addEventListener('resize', adjustCanvasSize);
+
+</script>
+</body>
+</html>
