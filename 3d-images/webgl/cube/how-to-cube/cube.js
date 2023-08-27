@@ -147,7 +147,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
   gl.clearColor(0.0, 0.0, 0.0, 1.0);  // Clear to black, fully opaque
   gl.clearDepth(1.0);                 // Clear everything
   gl.enable(gl.DEPTH_TEST);           // The Depth Test is a per-sample processing operation performed after the Fragment Shader 
-  gl.depthFunc(gl.EQUAL);            // Near things obscure far things (https://pt.wikipedia.org/wiki/Z-buffer)
+  gl.depthFunc(gl.LEQUAL);            // Near things obscure far things (https://pt.wikipedia.org/wiki/Z-buffer)
 
   // Clear the canvas before we start drawing on it.
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
