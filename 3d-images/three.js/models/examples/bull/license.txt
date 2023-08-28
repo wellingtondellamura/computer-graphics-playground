@@ -1,0 +1,11 @@
+Model Information:
+* title:	Maquina
+* source:	https://sketchfab.com/3d-models/maquina-1e91de5685d14cf182e4de881581222d
+* author:	mike69420 (https://sketchfab.com/mike69420)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Maquina" (https://sketchfab.com/3d-models/maquina-1e91de5685d14cf182e4de881581222d) by mike69420 (https://sketchfab.com/mike69420) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
