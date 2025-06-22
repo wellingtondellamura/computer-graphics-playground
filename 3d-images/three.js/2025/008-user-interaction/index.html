@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Three.js + Cannon-es - Controle Interativo</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 10px;
+      font-family: sans-serif;
+      z-index: 10;
+    }
+    button, input {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <button id="addSphere">Adicionar Esfera</button><br>
+    Gravidade Y: <input id="gravityY" type="number" step="0.1" value="-9.82"><br>
+    <button id="applyGravity">Aplicar Gravidade</button>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
